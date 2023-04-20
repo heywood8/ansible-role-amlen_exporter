@@ -1,3 +1,4 @@
+---
 - name: Configure latest version
   include_tasks: config-version.yaml
   when: >
