@@ -11,8 +11,8 @@
 
 - name: Set amlen_exporter_version
   set_fact:
-    amlen_exporter_version: "{{ _github_release.json.tag_name
-      | regex_replace('^v?([0-9\\.]+)$', '\\1') }}"
+    amlen_exporter_version: "{{ _github_release.json.tag_name }}"
+      #| regex_replace('^v?([0-9\\.]+)$', '\\1') }}"
 
 - name: Set node_exporter_download_url
   set_fact:
