@@ -15,7 +15,6 @@ amlen_exporter_bin_path: /usr/local/bin/node_exporter
 amlen_exporter_port: 9672
 
 amlen_exporter_user: amlen_exporter
-amlen_exporter_group: amlen_exporter
 amlen_exporter_target: localhost:9089
 
 amlen_exporter_state: started

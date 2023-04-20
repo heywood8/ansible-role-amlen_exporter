@@ -6,7 +6,6 @@ After=network-online.target
 [Service]
 TimeoutStartSec=0
 User={{ amlen_exporter_user }}
-Group={{ amlen_exporter_group }}
 ExecStart={{ amlen_exporter_bin_path }} {{ amlen_exporter_port }} {{ amlen_exporter_target }}
 
 SyslogIdentifier=amlen_exporter
