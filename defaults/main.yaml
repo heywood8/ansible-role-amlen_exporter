@@ -10,7 +10,7 @@ amlen_exporter_arch: amd64
 amlen_exporter_download_prefix: https://github.com/heywood8/amlen-prometheus-exporter/releases/download
 amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/{{ amlen_exporter_version }}_linux_{{ amlen_exporter_arch }}.tar.gz"
 
-amlen_exporter_bin_path: /opt/amlen_exporter/amlen_exporter
+amlen_exporter_bin_path: /usr/local/bin/node_exporter
 
 amlen_exporter_listen_port: 9672
 
