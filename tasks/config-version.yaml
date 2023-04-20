@@ -16,4 +16,4 @@
 
 - name: Set node_exporter_download_url
   set_fact:
-    amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/{{ amlen_exporter_version }}_linux_{{ amlen_exporter_arch }}.zip"
+    amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/{{ amlen_exporter_version }}_linux_{{ amlen_exporter_arch }}.tar.gz"
