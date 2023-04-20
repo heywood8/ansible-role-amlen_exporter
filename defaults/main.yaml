@@ -1,0 +1,23 @@
+---
+# Use the latest amlen_exporter release
+node_exporter_version: 'latest'
+
+# Alternatively, set a specific version
+# See available releases: https://github.com/heywood8/amlen-prometheus-exporter/releases/
+# amlen_exporter_version: 'v0.1.0'
+
+amlen_exporter_arch: amd64
+amlen_exporter_download_prefix: https://github.com/heywood8/amlen-prometheus-exporter/releases/download 
+amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/{{ amlen_exporter_version }}_linux_{{ amlen_exporter_arch }}.zip"
+
+amlen_exporter_bin_path: /opt/amlen_exporter/amlen_exporter
+
+amlen_exporter_listen_port: 9672
+
+amlen_exporter_user: amlen_exporter
+amlen_exporter_group: amlen_exporter
+amlen_exporter_target: localhost:9089
+
+amlen_exporter_state: started
+amlen_exporter_enabled: true
+

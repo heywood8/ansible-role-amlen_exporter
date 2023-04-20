@@ -1,0 +1,23 @@
+[Unit]
+Description=Prometheus Amlen (Messagesight) Exporter
+After=network-online.target
+
+[Service]
+StartLimitInterval=0
+Type=simple
+User={{ amlen_exporter_user }}
+Group={{ amlen_exporter_group }}
+ExecStart={{ amlen_exporter_bin_path }} {{ amlen_exporter_port }} {{ amlen_exporter_target }}
+
+SyslogIdentifier=amlen_exporter
+Restart=always
+RestartSec=1
+
+PrivateTmp=yes
+ProtectHome=yes
+NoNewPrivileges=yes
+
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

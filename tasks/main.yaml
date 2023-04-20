@@ -1,0 +1,56 @@
+- name: Configure latest version
+  include_tasks: config-version.yaml
+  when: >
+    amlen_exporter_version is match("latest")
+    or amlen_exporter_version is not defined
+
+- name: Download and unarchive amlen_exporter into temporary location.
+  unarchive:
+    src: "{{ amlen_exporter_download_url }}"
+    dest: /tmp
+    remote_src: true
+    mode: 0755
+  register: amlen_exporter_download_check
+
+- name: Move amlen_exporter binary into place.
+  copy:
+    src: "/tmp/amlen_exporter-{{ amlen_exporter_version }}.linux-{{ amlen_exporter_arch }}/amlen_exporter"
+    dest: "{{ amlen_exporter_bin_path }}"
+    mode: 0755
+    remote_src: true
+  notify: restart amlen_exporter
+  when: >
+    amlen_exporter_download_check is changed
+    or amlen_exporter_version_check.stdout | length == 0
+
+- name: Create amlen_exporter user.
+  user:
+    name: amlen_exporter
+    shell: /sbin/nologin
+    state: present
+
+- name: Copy the amlen_exporter systemd unit file.
+  template:
+    src: amlen_exporter.service.j2
+    dest: /etc/systemd/system/amlen_exporter.service
+    mode: 0644
+  register: amlen_exporter_service
+
+- name: Reload systemd daemon if unit file is changed.
+  systemd:
+    daemon_reload: true
+  notify: restart amlen_exporter
+  when: amlen_exporter_service is changed
+
+- name: Ensure amlen_exporter is running and enabled at boot.
+  service:
+    name: amlen_exporter
+    state: "{{ amlen_exporter_state }}"
+    enabled: "{{ amlen_exporter_enabled }}"
+
+- name: Verify amlen_exporter is responding to requests.
+  uri:
+    url: "http://localhost:{{ amlen_exporter_port }}/metrics"
+    return_content: true
+  register: metrics_output
+  failed_when: "'ms_info_uptime_seconds' not in metrics_output.content"
