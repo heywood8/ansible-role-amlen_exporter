@@ -9,11 +9,11 @@
   until: _github_release.status == 200
   retries: 5
 
-- name: Set node_exporter_version
+- name: Set amlen_exporter_version
   set_fact:
-    node_exporter_version: "{{ _github_release.json.tag_name
+    amlen_exporter_version: "{{ _github_release.json.tag_name
       | regex_replace('^v?([0-9\\.]+)$', '\\1') }}"
 
 - name: Set node_exporter_download_url
   set_fact:
-    node_exporter_download_url: "{{ amlen_exporter_download_prefix }}/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch }}.tar.gz"
+    amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/{{ amlen_exporter_version }}_linux_{{ amlen_exporter_arch }}.zip"
