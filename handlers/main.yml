@@ -1,0 +1,5 @@
+---
+- name: restart amlen_exporter
+  service:
+    name: amlen_exporter
+    state: restarted
