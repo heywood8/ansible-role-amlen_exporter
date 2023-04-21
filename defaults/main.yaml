@@ -8,7 +8,7 @@ amlen_exporter_version: 'latest'
 
 amlen_exporter_arch: amd64
 amlen_exporter_download_prefix: https://github.com/heywood8/amlen-prometheus-exporter/releases/download
-amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/amlen_exporter-{{ amlen_exporter_version }}.linux.{{ amlen_exporter_arch }}.tar.gz"
+amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/amlen_exporter-{{ amlen_exporter_version }}.linux-{{ amlen_exporter_arch }}.tar.gz"
 
 amlen_exporter_bin_path: /usr/local/bin/amlen_exporter
 
