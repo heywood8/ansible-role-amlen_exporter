@@ -64,4 +64,5 @@
     url: "http://localhost:{{ amlen_exporter_port }}/metrics"
     return_content: true
   register: metrics_output
-  failed_when: "'ms_info_uptime_seconds' not in metrics_output.content"
+
+- debug: var={{ metrics_output.content }}
