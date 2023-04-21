@@ -25,7 +25,7 @@
 
 - name: Move amlen_exporter binary into place.
   copy:
-    src: "/tmp/amlen_exporter-{{ amlen_exporter_version }}.linux-{{ amlen_exporter_arch }}/amlen_exporter"
+    src: "/tmp/amlen_exporter"
     dest: "{{ amlen_exporter_bin_path }}"
     mode: 0755
     remote_src: true
