@@ -13,16 +13,6 @@
     mode: 0755
   register: amlen_exporter_download_check
 
-- name: Recursively find /tmp
-  ansible.builtin.find:
-    paths: /tmp
-    recurse: yes
-  register: dir_out
-
-- debug: var={{item}}
-  with_items: dir_out.files
-
-
 - name: Move amlen_exporter binary into place.
   copy:
     src: "/tmp/amlen_exporter"
