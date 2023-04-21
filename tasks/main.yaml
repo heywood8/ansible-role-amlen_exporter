@@ -22,7 +22,6 @@
   notify: restart amlen_exporter
   when: >
     amlen_exporter_download_check is changed
-    or amlen_exporter_version_check.stdout | length == 0
 
 - name: Create amlen_exporter user.
   user:
