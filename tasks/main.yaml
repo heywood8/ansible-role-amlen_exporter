@@ -52,6 +52,3 @@
   uri:
     url: "http://localhost:{{ amlen_exporter_port }}/metrics"
     return_content: true
-  register: metrics_output
-
-- debug: var={{ metrics_output.content }}
