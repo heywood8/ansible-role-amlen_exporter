@@ -7,7 +7,7 @@ driver:
 platforms:
   - name: instance
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-rockylinux8}-ansible:latest"
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    command: ${MOLECULE_DOCKER_COMMAND:-"/sbin/init"}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     cgroupns_mode: host
@@ -15,7 +15,6 @@ platforms:
     pre_build_image: true
     capabilities:
       - SYS_ADMIN
-    command: /sbin/init
 provisioner:
   name: ansible
   playbooks:
