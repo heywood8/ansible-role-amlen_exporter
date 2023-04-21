@@ -26,7 +26,7 @@
 
 - name: Create amlen_exporter user.
   user:
-    name: amlen_exporter
+    name: "{{ amlen_exporter_user }}"
     shell: /sbin/nologin
     state: present
 
