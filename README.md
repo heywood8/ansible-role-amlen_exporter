@@ -12,22 +12,22 @@ Available variables are listed below, along with default values (see `defaults/m
 
     amlen_exporter_version: 0.4.0
 
-The version of Node exporter to install. Available releases can be found on the [tags](https://github.com/heywood8/amlen-prometheus-exporter/tags) listing in the Amlen exporter repository.
+The version of Amlen exporter to install. Available releases can be found on the [tags](https://github.com/heywood8/amlen-prometheus-exporter/tags) listing in the Amlen exporter repository.
 
 If you change the version, the `amlen_exporter` binary will be replaced with the updated version, and the service will be restarted.
 
     amlen_exporter_arch: 'amd64'
     amlen_exporter_download_url: "{{ amlen_exporter_download_prefix }}/{{ amlen_exporter_version }}/amlen_exporter-{{ amlen_exporter_version }}.centos7-{{ amlen_exporter_arch }}.tar.gz"
 
-The architecture and download URL for Node exporter.
+The architecture and download URL for Amlen exporter.
 
-    amlen_exporter_bin_path: /usr/local/bin/node_exporter
+    amlen_exporter_bin_path: /usr/local/bin/amlen_exporter
 
 The path where the `amlen_exporter` binary will be installed.
 
     amlen_exporter_port: 9672
 
-Port on which node exporter will listen.
+Port on which Amlen exporter will listen.
 
     amlen_exporter_user: amlen_exporter
 
@@ -50,7 +50,7 @@ None.
 
     - hosts: all
       roles:
-        - role: heywood.node_exporter
+        - role: heywood.amlen_exporter
 
 ## License
 
