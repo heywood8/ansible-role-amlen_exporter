@@ -1,5 +1,6 @@
 # ansible-role-amlen_exporter
 [![CI](https://github.com/heywood8/ansible-role-amlen_exporter/workflows/CI/badge.svg?event=push)](https://github.com/heywood8/ansible-role-amlen_exporter/actions?query=workflow%3ACI)
+
 This role installs Prometheus' [Amlen exporter](https://github.com/heywood8/amlen-prometheus-exporter) on Linux hosts, and configures a systemd unit file so the service can run and be controlled by systemd.
 ## Requirements
 
